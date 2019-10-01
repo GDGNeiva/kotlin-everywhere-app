@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var rcvList: RecyclerView
     lateinit var btnNewProduct: FloatingActionButton
 
-    // Initializing an empty ArrayList to be filled with animals
     val products: ArrayList<Product> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,17 +28,35 @@ class MainActivity : AppCompatActivity() {
         rcvList.adapter = adapterRecyclerView;
         rcvList.setHasFixedSize(true)
 
+        // referencia al float button
         btnNewProduct = findViewById<FloatingActionButton>(R.id.btnNewProduct);
 
         // Click item del listado
         adapterRecyclerView.onItemClick = { product ->
-            // Consulta solo el item seleccionado
             getProductById(product.id);
+        }
+
+        // Click item al boton ver producto
+        adapterRecyclerView.onViewClick = { product ->
+            Toast.makeText(applicationContext, "VER", Toast.LENGTH_SHORT).show()
+        }
+
+        // Click item al boton editar producto
+        adapterRecyclerView.onEditClick = { product ->
+            val intent = Intent(this, FormProduct::class.java)
+            intent.putExtra("id", product.id.toString())
+            startActivity(intent)
+        }
+
+        // Click item al boton eliminar producto
+        adapterRecyclerView.onDeleteClick = { product ->
+            Toast.makeText(applicationContext, "ELIMINAR", Toast.LENGTH_SHORT).show()
         }
 
         getProducts();
 
 
+        // Click al boton de crear producto
         btnNewProduct.setOnClickListener() {
             val intent = Intent(this, FormProduct::class.java)
             startActivity(intent)

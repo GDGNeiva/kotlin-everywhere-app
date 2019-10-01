@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
+// Dependencias de ROOM para la DB local
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -33,10 +34,15 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    // Dependencias de ROOM para la DB local
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+
+    // Para utilizar recicler view
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
+    // Plantilla de diseño
     implementation 'com.google.android.material:material:1.1.0-alpha06'
+
 }

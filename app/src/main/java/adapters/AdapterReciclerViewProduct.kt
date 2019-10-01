@@ -13,6 +13,9 @@ class AdapterReciclerViewQuotation(val items: ArrayList<Product>, val context: C
     RecyclerView.Adapter<ViewHolder>() {
 
     var onItemClick: ((Product) -> Unit)? = null
+    var onViewClick: ((Product) -> Unit)? = null
+    var onEditClick: ((Product) -> Unit)? = null
+    var onDeleteClick: ((Product) -> Unit)? = null
 
     // Gets the number of animals in the list
     override fun getItemCount(): Int {
@@ -40,15 +43,31 @@ class AdapterReciclerViewQuotation(val items: ArrayList<Product>, val context: C
         holder?.itemView.setOnClickListener {
             onItemClick?.invoke(items.get(position))
         }
+
+        holder?.btnViewProduct.setOnClickListener {
+            onViewClick?.invoke(items.get(position))
+        }
+
+        holder?.btnEditProduct.setOnClickListener {
+            onEditClick?.invoke(items.get(position))
+        }
+
+        holder?.btnDeleteProduct.setOnClickListener {
+            onDeleteClick?.invoke(items.get(position))
+        }
     }
 
 }
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    // Holds the TextView that will add each animal to
     val imgProduct = view.imgProduct
     val txvCode = view.txvCode
     val txvName = view.txvName
     val txvPrice = view.txvPrice
+
+    // Botones del listado
+    val btnViewProduct = view.btnViewProduct
+    val btnEditProduct = view.btnEditProduct
+    val btnDeleteProduct = view.btnDeleteProduct
 }
 
