@@ -4,8 +4,6 @@ import adapters.AdapterReciclerViewQuotation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import gdgneiva.kotlineverywhere.kotlineverywhereapp.DB.*
-import androidx.lifecycle.ViewModelProviders
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,28 +11,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import models.Product
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var contactsViewModel: ContactsViewModel
 
     lateinit var rcvList: RecyclerView
     lateinit var btnNewProduct: FloatingActionButton
 
-    // Initializing an empty ArrayList to be filled with animals
     val products: ArrayList<Product> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//<<<<<<< HEAD
-//        contactsViewModel = run {
-//            ViewModelProviders.of(this).get(ContactsViewModel::class.java)
-//        }
-//
-//        val phone = "3114554354"
-//        val name = "Oscar"
-//        val lastName = "Rodriguez"
-//        contactsViewModel.saveContact(Contact(phone, name, lastName))
-//=======
         // configurar RecyclerView
         rcvList = findViewById<RecyclerView>(R.id.rcvList);
         rcvList.layoutManager = LinearLayoutManager(this)
@@ -42,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         rcvList.adapter = adapterRecyclerView;
         rcvList.setHasFixedSize(true)
 
+        // referencia al float button
         btnNewProduct = findViewById<FloatingActionButton>(R.id.btnNewProduct);
 
         // Click item del listado
@@ -53,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         getProducts();
 
 
+        // Click al boton de crear producto
         btnNewProduct.setOnClickListener() {
             val intent = Intent(this, FormProduct::class.java)
             startActivity(intent)
@@ -155,6 +143,7 @@ class MainActivity : AppCompatActivity() {
         );
 
         rcvList.adapter?.notifyDataSetChanged();
+
     }
 
     fun getProductById(id: Int) {
