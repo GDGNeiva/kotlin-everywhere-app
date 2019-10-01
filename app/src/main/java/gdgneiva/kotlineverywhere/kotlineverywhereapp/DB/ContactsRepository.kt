@@ -9,7 +9,10 @@ class ContactsRepository(application: Application) {
     private val contactDao: ContactDao? = ContactsDatabase.getInstance(application)?.contactDao()
 
     fun insert(contact: Contact) {
-        if (contactDao != null) InsertAsyncTask(contactDao).execute(contact)
+        if (contactDao != null) {
+            println("Insert-ok")
+            InsertAsyncTask(contactDao).execute(contact)
+        }
     }
 
     fun getContacts(): LiveData<List<Contact>> {
@@ -20,6 +23,7 @@ class ContactsRepository(application: Application) {
         AsyncTask<Contact, Void, Void>() {
         override fun doInBackground(vararg contacts: Contact?): Void? {
             for (contact in contacts) {
+                println("InsertAsyncTask-ok")
                 if (contact != null) contactDao.insert(contact)
             }
             return null

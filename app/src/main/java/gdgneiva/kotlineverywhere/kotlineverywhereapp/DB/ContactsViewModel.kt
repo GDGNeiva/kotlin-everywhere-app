@@ -8,6 +8,7 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
     val contacts = repository.getContacts()
 
     fun saveContact(contact: Contact) {
+        println("saveContact-ok" + contact.firstName)
         repository.insert(contact)
     }
 }
