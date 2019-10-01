@@ -33,8 +33,24 @@ class MainActivity : AppCompatActivity() {
 
         // Click item del listado
         adapterRecyclerView.onItemClick = { product ->
-            // Consulta solo el item seleccionado
             getProductById(product.id);
+        }
+
+        // Click item al boton ver producto
+        adapterRecyclerView.onViewClick = { product ->
+            Toast.makeText(applicationContext, "VER", Toast.LENGTH_SHORT).show()
+        }
+
+        // Click item al boton editar producto
+        adapterRecyclerView.onEditClick = { product ->
+            val intent = Intent(this, FormProduct::class.java)
+            intent.putExtra("id", product.id.toString())
+            startActivity(intent)
+        }
+
+        // Click item al boton eliminar producto
+        adapterRecyclerView.onDeleteClick = { product ->
+            Toast.makeText(applicationContext, "ELIMINAR", Toast.LENGTH_SHORT).show()
         }
 
         getProducts();
