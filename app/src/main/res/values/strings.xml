@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinEverywhereApp</string>
+    <string name="title_activity_product">Product</string>
+    <string name="title_activity_form_product">FormProduct</string>
 </resources>
