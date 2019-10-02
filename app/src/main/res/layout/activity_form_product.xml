@@ -6,38 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".FormProduct">
 
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:text="Aceptar"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="79dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/contacts_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:background="@color/colorPrimary"
             android:textColor="@color/cardview_dark_background"
             android:gravity="center"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSave" />
+            app:layout_constraintTop_toBottomOf="@id/btnSave"/>
 
-    </RelativeLayout>
+        <EditText
+            android:id="@+id/txtCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="Code"/>
+
+        <EditText
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:hint="Name"/>
+
+        <EditText
+            android:id="@+id/txtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="Price"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+        <Button
+            android:id="@+id/btnImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IMG"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+    </LinearLayout>
 
 
-
-    </RelativeLayout>
+</RelativeLayout>

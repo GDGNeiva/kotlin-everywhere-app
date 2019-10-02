@@ -2,52 +2,85 @@ package gdgneiva.kotlineverywhere.kotlineverywhereapp
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import gdgneiva.kotlineverywhere.kotlineverywhereapp.DB.Contact
-import gdgneiva.kotlineverywhere.kotlineverywhereapp.DB.ContactsViewModel
 
-import kotlinx.android.synthetic.main.activity_form_product.*
+import models.DBProduct
+import models.Product
 
 class FormProduct : AppCompatActivity() {
-    private lateinit var contactsViewModel: ContactsViewModel
+    private lateinit var txtCode: EditText
+    private lateinit var txtName: EditText
+    private lateinit var txtPrice: EditText
+
+    private lateinit var objDBProduct: DBProduct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_product)
 
-        contactsViewModel = run {
-            ViewModelProviders.of(this).get(ContactsViewModel::class.java)
+        // Obtenemos las referencias a los componentes de la vista
+        txtCode = findViewById(R.id.txtCode)
+        txtName = findViewById(R.id.txtName)
+        txtPrice = findViewById(R.id.txtPrice)
+        val btnSave = findViewById(R.id.btnSave) as Button
+
+        // Obtenemos los parametros enviados desde la actividad principal
+        var id: Int = 0
+        if (! intent.getStringExtra("id").isNullOrEmpty()) {
+            id = Integer.parseInt(intent.getStringExtra("id"))
         }
-        val btn_click_me = findViewById(R.id.btnSave) as Button
-        // set on-click listener
-        btn_click_me.setOnClickListener {
-            addContact()
+
+        // Instanciamos la clase del modelo Product, encargada de la DB
+        objDBProduct = DBProduct(applicationContext)
+
+        // Cargamos los datos del productor a modificar, si existe
+        loadProduct(id)
+
+        // Agregamos los eventos a los componentes de la vista
+        btnSave.setOnClickListener {
+            if(id > 0) updateProduct(id) else insertProduct()
+            // Finalizamos la activity para regresar a la principal
+            finish()
         }
-        addObserver()
-    }
-//
-    private fun addObserver() {
-        val observer = Observer<List<Contact>> { contacts ->
-            if (contacts != null) {
-                var text = ""
-                for (contact in contacts) {
-                    text += contact.lastName + " " + contact.firstName + " - " + contact.phoneNumber + "\n"
-                }
-                contacts_textView.text = text
-            }
-        }
-        contactsViewModel.contacts.observe(this, observer)
     }
 
-    private fun addContact() {
-        val phone = "3333"
-        val name = "oscar"
-        val lastName = "Rodriguez"
-        contactsViewModel.saveContact(Contact(phone, name, lastName))
+    private fun loadProduct(id: Int){
+        if (id > 0) {
+            // Obtenemos los datos del producto que esta en la DB
+            val product = objDBProduct.selectById(id)
+            // Asignar los atributos del producto a los componentes de la view
+            txtCode.setText(product.code)
+            txtName.setText(product.name)
+            txtPrice.setText(product.price.toString())
+        }
     }
 
+    private fun insertProduct() {
+        val objProduct = Product(
+            0,
+            txtCode.text.toString(),
+            R.drawable.cocacola,
+            txtName.text.toString(),
+            Integer.parseInt(txtPrice.getText().toString())
+        )
+        objDBProduct.insert(objProduct);
+    }
+
+    private fun updateProduct(id: Int) {
+        val objProduct = Product(
+            id,
+            txtCode.text.toString(),
+            R.drawable.cocacola,
+            txtName.text.toString(),
+            Integer.parseInt(txtPrice.text.toString())
+        )
+        val result: Boolean = objDBProduct.update(objProduct);
+        if (result) {
+            Toast.makeText(this, "Se actualizo correctamente", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Error, al actualizar", Toast.LENGTH_LONG).show()
+        }
+    }
 }
