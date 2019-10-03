@@ -3,7 +3,7 @@ package models
 class Product(
     var id: Int,
     var code: String,
-    var img: Int,
+    var img: String,
     var name: String,
     var price: Int
 )

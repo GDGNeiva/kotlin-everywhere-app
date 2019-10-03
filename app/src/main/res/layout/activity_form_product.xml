@@ -1,72 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormProduct">
+    android:orientation="vertical"
+    tools:context=".FormProduct"
+    android:padding="20dp">
 
     <LinearLayout
+        android:id="@+id/linLayFrm"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/contacts_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/cardview_dark_background"
-            android:gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSave"/>
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_photo_black_24dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
 
         <EditText
             android:id="@+id/txtCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Code"
             android:inputType="textPersonName"
-            android:text=""
-            android:hint="Code"/>
+            android:text="" />
 
         <EditText
             android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Name"
             android:inputType="textPersonName"
-            android:text=""
-            android:hint="Name"/>
+            android:text="" />
 
         <EditText
             android:id="@+id/txtPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal"
-            android:hint="Price"/>
-
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Guardar"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="79dp" />
-
-        <Button
-            android:id="@+id/btnImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="IMG"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="79dp" />
+            android:hint="Price"
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="154dp"
+        android:gravity="center"
+        android:layout_below="@+id/linLayFrm"
+        tools:ignore="MissingConstraints">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GUARDAR"
+            tools:ignore="MissingConstraints"
+            android:layout_marginRight="5pt"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="79dp" />
+    </LinearLayout>
+
+
+</LinearLayout>
