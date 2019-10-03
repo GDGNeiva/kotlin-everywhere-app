@@ -41,7 +41,7 @@ class DBProduct(val context: Context) {
             products.add(Product(
                 curData.getInt(curData.getColumnIndex("id")),
                 curData.getString(curData.getColumnIndex("code")),
-                curData.getInt(curData.getColumnIndex("img")),
+                curData.getString(curData.getColumnIndex("img")),
                 curData.getString(curData.getColumnIndex("name")),
                 curData.getInt(curData.getColumnIndex("price"))
             ));
@@ -56,7 +56,7 @@ class DBProduct(val context: Context) {
         val product = Product(
             curData.getInt(curData.getColumnIndex("id")),
             curData.getString(curData.getColumnIndex("code")),
-            curData.getInt(curData.getColumnIndex("img")),
+            curData.getString(curData.getColumnIndex("img")),
             curData.getString(curData.getColumnIndex("name")),
             curData.getInt(curData.getColumnIndex("price"))
         )

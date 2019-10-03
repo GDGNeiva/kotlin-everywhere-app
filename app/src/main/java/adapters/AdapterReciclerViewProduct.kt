@@ -8,12 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import gdgneiva.kotlineverywhere.kotlineverywhereapp.R
 import kotlinx.android.synthetic.main.quotation_list_item.view.*
 import models.Product
+import android.net.Uri
+import helps.Image
+
 
 class AdapterReciclerViewQuotation(val items: ArrayList<Product>, val context: Context) :
     RecyclerView.Adapter<ViewHolder>() {
 
     var onItemClick: ((Product) -> Unit)? = null
-    var onViewClick: ((Product) -> Unit)? = null
+//    var onViewClick: ((Product) -> Unit)? = null
     var onEditClick: ((Product) -> Unit)? = null
     var onDeleteClick: ((Product) -> Unit)? = null
 
@@ -35,7 +38,9 @@ class AdapterReciclerViewQuotation(val items: ArrayList<Product>, val context: C
 
     // Binds each animal in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder?.imgProduct?.setImageResource(items.get(position).img)
+        val imgUri = Image(context).getUri(items.get(position).img)
+        holder?.imgProduct?.setImageURI(imgUri)
+//        holder?.imgProduct?.setImageResource(items.get(position).img)
         holder?.txvCode?.text = items.get(position).code
         holder?.txvName?.text = items.get(position).name
         holder?.txvPrice?.text = items.get(position).price.toString()
@@ -44,9 +49,9 @@ class AdapterReciclerViewQuotation(val items: ArrayList<Product>, val context: C
             onItemClick?.invoke(items.get(position))
         }
 
-        holder?.btnViewProduct.setOnClickListener {
-            onViewClick?.invoke(items.get(position))
-        }
+//        holder?.btnViewProduct.setOnClickListener {
+//            onViewClick?.invoke(items.get(position))
+//        }
 
         holder?.btnEditProduct.setOnClickListener {
             onEditClick?.invoke(items.get(position))
@@ -66,7 +71,7 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val txvPrice = view.txvPrice
 
     // Botones del listado
-    val btnViewProduct = view.btnViewProduct
+//    val btnViewProduct = view.btnViewProduct
     val btnEditProduct = view.btnEditProduct
     val btnDeleteProduct = view.btnDeleteProduct
 }
