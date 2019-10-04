@@ -2,4 +2,13 @@
     <string name="app_name">GDG Neiva</string>
     <string name="title_activity_product">Producto</string>
     <string name="title_activity_about">Informacion</string>
+
+    <!-- Rutas de la app -->
+    <string name="rs_img_product">/img/products/</string>
+
+    <!-- Url de las redes sociales-->
+    <string name="uri_fb">https://www.facebook.com/GDGNeiva</string>
+    <string name="uri_github">https://github.com/GDGNeiva/kotlin-everywhere-app/</string>
+    <string name="uri_twitter">https://twitter.com/gdgneiva</string>
+    <string name="uri_meetup">https://www.meetup.com/GDGNeiva/</string>
 </resources>

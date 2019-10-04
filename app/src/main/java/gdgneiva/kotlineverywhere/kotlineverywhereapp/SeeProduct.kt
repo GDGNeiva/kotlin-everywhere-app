@@ -31,9 +31,4 @@ class SeeProduct : AppCompatActivity() {
             findViewById<ImageView>(R.id.imgProduct).setImageURI(Image(applicationContext).getUri(product.img))
         }
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
 }

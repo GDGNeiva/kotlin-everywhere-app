@@ -3,7 +3,6 @@ package gdgneiva.kotlineverywhere.kotlineverywhereapp
 import adapters.AdapterReciclerViewQuotation
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,9 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import models.DBProduct
 import models.Product
 import android.view.Menu
-import android.net.Uri
 import android.view.MenuItem
-import android.content.pm.PackageManager
 
 class MainActivity : AppCompatActivity() {
     private lateinit var objDBProduct: DBProduct
@@ -29,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        (this as AppCompatActivity).supportActionBar?.title = "Kotlin / Everywhere"
 
         objDBProduct = DBProduct(applicationContext)
 
@@ -48,11 +46,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("id", product.id.toString())
             startActivityForResult(intent, SUCCESS)
         }
-
-        // Click item al boton ver producto
-//        adapterRecyclerView.onViewClick = { product ->
-//            Toast.makeText(applicationContext, "VER", Toast.LENGTH_SHORT).show()
-//        }
 
         // Click item al boton editar producto
         adapterRecyclerView.onEditClick = { product ->
@@ -83,9 +76,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun deleteProduct(product: Product) {
-
         // Initialize a new instance of
-        val builder = AlertDialog.Builder(this@MainActivity)
+        val builder = AlertDialog.Builder(this)
         // Adicionar el titulo y descripcion
         builder.setTitle("Eliminar Producto")
         builder.setMessage("Esta seguro de eliminar el producto: ${product.name}?")
@@ -118,42 +110,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle item selection
-        when (item.getItemId()) {
-//            R.id.actFb-> {
-//                startActivity(newFacebookIntent(applicationContext, "https://www.facebook.com/GDGNeiva"))
-//                return true
-//            }
-//            R.id.actMeetup -> {
-//                val openURL = Intent(android.content.Intent.ACTION_VIEW)
-//                openURL.data = Uri.parse("https://www.meetup.com/es-ES/GDGNeiva/events/263280688/")
-//                startActivity(openURL)
-//                return true
-//            }
-            R.id.actAbout -> {
-                startActivityForResult(Intent(this, About::class.java), SUCCESS)
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
+        if (item.getItemId() == R.id.actAbout) {
+            startActivityForResult(Intent(this, About::class.java), SUCCESS)
+            return true
         }
-    }
-    fun newFacebookIntent(context: Context, url: String): Intent {
-        var uri = Uri.parse(url)
-        val packageManager = context.packageManager
-        try {
-            val applicationInfo = packageManager.getApplicationInfo("com.facebook.katana", 0)
-            if (applicationInfo.enabled) {
-                uri = Uri.parse("fb://facewebmodal/f?href=$url")
-            }
-        } catch (ignored: PackageManager.NameNotFoundException) {
-
-        }
-        return Intent(Intent.ACTION_VIEW, uri)
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
         const val SUCCESS = 1  // The request code
     }
-
-
 }
