@@ -4,3 +4,4 @@
     2. Crear el archivo README.md con la descripcion adecuada (instalacion, acerca del evento)
     3. Revisar algo de test
     4. Crear video para instalar los requisitos
+    5. Firmar la APP para instalar en el movil
