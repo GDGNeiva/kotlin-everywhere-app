@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_launcher_gdgneiva" />
+            app:srcCompat="@drawable/gdgneiva_logo" />
 
     </LinearLayout>
 
