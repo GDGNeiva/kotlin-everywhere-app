@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/gdgneiva_logo" />
+            app:srcCompat="@drawable/gdgneiva_banner" />
 
     </LinearLayout>
 
@@ -31,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Speakers" />
+            android:text="Speakers"
+            app:fontFamily="sans-serif" />
     </LinearLayout>
 
     <LinearLayout

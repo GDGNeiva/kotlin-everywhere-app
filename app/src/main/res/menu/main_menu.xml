@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/actFb"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/facebook"
-        android:title="Fb">
-    </item>
-    <item
-        android:id="@+id/actTwitter"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/twitter"
-        android:title="Twitter">
-    </item>
-    <item
-        android:id="@+id/actGitHub"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/github"
-        android:title="GitHub">
-    </item>
-    <item
-        android:id="@+id/actMeetup"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/meetup"
-        android:title="Meetup">
-    </item>
+<!--    <item-->
+<!--        android:id="@+id/actFb"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:icon="@drawable/facebook"-->
+<!--        android:title="Fb">-->
+<!--    </item>-->
+<!--    <item-->
+<!--        android:id="@+id/actTwitter"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:icon="@drawable/twitter"-->
+<!--        android:title="Twitter">-->
+<!--    </item>-->
+<!--    <item-->
+<!--        android:id="@+id/actGitHub"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:icon="@drawable/github"-->
+<!--        android:title="GitHub">-->
+<!--    </item>-->
+<!--    <item-->
+<!--        android:id="@+id/actMeetup"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:icon="@drawable/meetup"-->
+<!--        android:title="Meetup">-->
+<!--    </item>-->
     <item
         android:id="@+id/actAbout"
         android:icon="@drawable/ic_info_black_24dp"

@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Kotlin Everywhere</string>
-    <string name="title_activity_product">Product</string>
-    <string name="title_activity_form_product">Producto</string>
-    <string name="title_activity_about">about</string>
+    <string name="app_name">GDG Neiva</string>
+    <string name="title_activity_product">Producto</string>
+    <string name="title_activity_about">Informacion</string>
 </resources>

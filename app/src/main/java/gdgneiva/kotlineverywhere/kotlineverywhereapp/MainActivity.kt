@@ -120,16 +120,16 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         when (item.getItemId()) {
-            R.id.actFb-> {
-                startActivity(newFacebookIntent(applicationContext, "https://www.facebook.com/GDGNeiva"))
-                return true
-            }
-            R.id.actMeetup -> {
-                val openURL = Intent(android.content.Intent.ACTION_VIEW)
-                openURL.data = Uri.parse("https://www.meetup.com/es-ES/GDGNeiva/events/263280688/")
-                startActivity(openURL)
-                return true
-            }
+//            R.id.actFb-> {
+//                startActivity(newFacebookIntent(applicationContext, "https://www.facebook.com/GDGNeiva"))
+//                return true
+//            }
+//            R.id.actMeetup -> {
+//                val openURL = Intent(android.content.Intent.ACTION_VIEW)
+//                openURL.data = Uri.parse("https://www.meetup.com/es-ES/GDGNeiva/events/263280688/")
+//                startActivity(openURL)
+//                return true
+//            }
             R.id.actAbout -> {
                 startActivityForResult(Intent(this, About::class.java), SUCCESS)
                 return true
