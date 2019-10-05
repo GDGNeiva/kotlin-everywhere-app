@@ -9,7 +9,7 @@ import android.util.Log
 class SocialNetworks (val context: Context){
 
     private fun openUrl(url: String) {
-        val openURL = Intent(android.content.Intent.ACTION_VIEW)
+        val openURL = Intent(android.content.Intent.ACTION_VIEW).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         openURL.data = Uri.parse(url)
         context.startActivity(openURL)
     }
@@ -25,7 +25,8 @@ class SocialNetworks (val context: Context){
         } catch (ignored: PackageManager.NameNotFoundException) {
             Log.e("SocialNetworks-Error", "Ocurrio un error")
         }
-        context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+        context.startActivity(Intent(Intent.ACTION_VIEW, uri).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
     }
 
     fun openGithub(url: String) {
