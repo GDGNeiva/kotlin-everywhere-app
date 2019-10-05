@@ -8,17 +8,18 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/gdgneiva_logo"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".About"
             android:label="@string/title_activity_about"
             android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".FormProduct"
-            android:label="@string/title_activity_form_product"
+            android:label="@string/title_activity_product"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -28,7 +29,8 @@
             android:name=".SeeProduct"
             android:label="@string/title_activity_product"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity" >
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

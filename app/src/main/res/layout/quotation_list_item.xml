@@ -65,17 +65,31 @@
 <!--                android:layout_height="wrap_content"-->
 <!--                android:src="@android:drawable/ic_menu_view"></ImageView>-->
 
-            <ImageView
-                android:id="@+id/btnEditProduct"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_edit"></ImageView>
+<!--            <ImageView-->
+<!--                android:id="@+id/btnEditProduct"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_edit"></ImageView>-->
 
-            <ImageView
-                android:id="@+id/btnDeleteProduct"
-                android:layout_width="50dp"
+<!--            <ImageView-->
+<!--                android:id="@+id/btnDeleteProduct"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_delete"></ImageView>-->
+
+            <ImageButton
+                android:id="@+id/btnEditProduct"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_delete"></ImageView>
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Editar" />
+
+            <ImageButton
+                android:id="@+id/btnDeleteProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:contentDescription="Eliminar" />
 
         </LinearLayout>
 

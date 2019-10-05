@@ -83,7 +83,6 @@ class FormProduct : AppCompatActivity() {
         }
 
         imgProduct.setOnClickListener {takePhotoFromCamera()}
-//        btn!!.setOnClickListener { takePhotoFromCamera() }
     }
 
     override fun onSupportNavigateUp(): Boolean {
